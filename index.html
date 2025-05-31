@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>index td8 : fetch</title>
+</head>
+<body>
+<main id="photo">
+<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<button id="galerie_button">Afficher la galerie</button>
+<nav id="nav-galerie">
+  <button id="prev">◀️ Prev</button>
+  <button id="next">Next ▶️</button>
+</nav>
+
+
+<section id="la_galerie"></section>
+
+
+
+<div id="lightbox" class="hidden">
+  <div id="lightbox-content">
+    <button id="lightbox-close">✕</button>
+    <button id="lightbox-prev">←</button>
+    <img id="lightbox-image" src="" alt="photo">
+    <button id="lightbox-next">→</button>
+    <div id="lightbox-caption"></div>
+  </div>
+</div>
+
+
+</main>
+
+<script id="template-photo" type="text/x-handlebars-template">
+	<h1>Photo : {{photo.id}}</h1>
+    <img src="https://webetu.iutnc.univ-lorraine.fr{{photo.url.href}}">
+    <h4>{{photo.titre}}</h4>
+    <p>{{photo.descr}}</p>
+    <p>{{photo.type}}, {{photo.width}} x {{photo.height}}</p>
+  	<h4 id="categorie">catégorie : {{categorie.categorie.nom}}</h4>
+    <h4>commentaires :</h4>
+    <ul id="les_commentaires">
+        {{#each commentaire.comments}}
+        <li>{{pseudo}} : {{content}}</li>
+        {{/each}}
+    </ul>
+</script>
+<section id="la_photo">
+   <img src="">
+    <h4>titre</h4>
+      <p>description</p>
+	  <p>type, defX x defY</p>
+	  <h4 id="la_categorie">categorie : categorie de l'image</h4>
+	  <h4>commentaires : </h4>
+	  <ul id="les_commentaires">
+		  <li>pseudo : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, vitae.</li>
+		  <li>pseudo : Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, recusandae.</li>
+	  </ul>
+</section>
+
+<h4>Ajouter un commentaire :</h4>
+<form id="form-commentaire">
+  <input type="text" id="input-pseudo" placeholder="Votre pseudo" required>
+  <input type="text" id="input-titre" placeholder="Titre" required>
+  <textarea id="input-content" placeholder="Votre commentaire" required></textarea>
+  <button type="submit">Envoyer</button>
+</form>
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script type="module" src='js/index.js' defer ></script>
+</body>
+</html>

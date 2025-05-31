@@ -1,0 +1,224 @@
+/* Reset basique */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Corps de page */
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.5;
+  padding: 20px;
+}
+
+/* Conteneur principal */
+main#photo {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Boutons */
+button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+button:hover {
+  background-color: #357ABD;
+}
+
+/* Section navigation galerie */
+nav#nav-galerie {
+  margin: 15px 0;
+  text-align: center;
+}
+
+/* Galerie : affichage en grille */
+#la_galerie {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+/* Chaque vignette */
+.vignette {
+  background: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+.vignette:hover {
+  transform: scale(1.05);
+}
+.vignette img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  object-fit: cover;
+}
+.vignette p {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+}
+
+/* Section affichage photo simple (exercice 4) */
+#la_photo {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.1);
+  margin-bottom: 30px;
+  text-align: center;
+}
+#la_photo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin-bottom: 15px;
+}
+#la_photo h4 {
+  margin-bottom: 10px;
+  color: #222;
+}
+#la_photo p {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+/* Lightbox : overlay pleine page */
+#lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Masqué par défaut */
+#lightbox.hidden {
+  display: none;
+}
+
+/* Contenu de la lightbox */
+#lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  text-align: center;
+  color: white;
+}
+
+/* Image dans lightbox */
+#lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 6px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+/* Caption */
+#lightbox-caption {
+  margin-top: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Boutons lightbox */
+#lightbox-close,
+#lightbox-prev,
+#lightbox-next {
+  position: absolute;
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  font-size: 2rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+#lightbox-close:hover,
+#lightbox-prev:hover,
+#lightbox-next:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Position des boutons */
+#lightbox-close {
+  top: 10px;
+  right: 10px;
+}
+
+#lightbox-prev {
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+}
+
+#lightbox-next {
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Responsive : réduit les marges et taille sur petit écran */
+@media (max-width: 600px) {
+  #la_galerie {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  }
+  button {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+
+img {
+    max-width: 30rem;
+    height: auto;
+}
+
+#form-commentaire {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#form-commentaire input,
+#form-commentaire textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+#form-commentaire button {
+  width: fit-content;
+  align-self: flex-start;
+}
